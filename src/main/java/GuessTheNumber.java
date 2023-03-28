@@ -1,46 +1,35 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class GuessTheNumber {
 
-    // Create a main() method
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-        // Use the following code to create a random number from 1 to 100:
-        // Note: you may have to import the Random class
-        // int randomNumber = new Random().nextInt(100) + 1;
+        int maxNumber = 100;
+        int numberOfAttempts = 5;
+        int randomNumber = random.nextInt(maxNumber) + 1;
 
-        // Create a Scanner object
+        System.out.println("I'm thinking of a number between 1 and " + maxNumber + ".");
+        System.out.println("You have " + numberOfAttempts + " attempts to guess it.");
 
+        for (int i = 1; i <= numberOfAttempts; i++) {
+            System.out.print("Guess #" + i + ": ");
+            int guess = scanner.nextInt();
 
-        // Create a variable to hold the number of guess attempts, example
-        // int guessAttempts = 6;
+            if (guess < randomNumber) {
+                System.out.println("Too low!");
+            } else if (guess > randomNumber) {
+                System.out.println("Too high!");
+            } else {
+                System.out.println("Congratulations! You guessed the number in " + i + " attempts.");
+                return;
+            }
+        }
 
+        System.out.println("Sorry, you didn't guess the number. It was " + randomNumber + ".");
+    }
 
-        // While the user has more than 0 guess attempts...
-
-            // Ask the user for a number between 1 and 100
-
-
-            // If the user's number matches the random number tell the user they guessed correctly!
-            // Stop the program using:
-            // System.exit(0);
-
-
-            // Otherwise, if the user's number is lower than the random number,
-            // tell them they guessed too low
-
-                // Decrease the number of attempts by 1
-
-
-            // Otherwise, tell the user they guessed too high
-
-                // Decrease the number of attempts by 1
-
-
-        // Outside the loop, tell the user they have lost and reveal the random number!
-
-
-
-        /*
-         * Feel free to add any additional rules :)
-         */
 }
+
